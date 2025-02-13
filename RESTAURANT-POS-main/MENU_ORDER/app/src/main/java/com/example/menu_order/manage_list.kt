@@ -1,5 +1,6 @@
 package com.example.menu_order
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
@@ -17,7 +18,11 @@ class manage_list : AppCompatActivity() {
         val ncPaymentButton = findViewById<Button>(R.id.btn_nc_payment_type)
         val payoutButton = findViewById<Button>(R.id.btn_payout)
         val unitTypeButton = findViewById<Button>(R.id.btn_unit_type)
-
+        val backArrow = findViewById<ImageView>(R.id.back_button)
+        backArrow.setOnClickListener {
+//            onBackPressed() // Ensure you are using the correct syntax
+            finish()
+        }
         // Button Click Events
         rebillingButton.setOnClickListener {
             Toast.makeText(this, "Re-billing Reason Clicked", Toast.LENGTH_SHORT).show()

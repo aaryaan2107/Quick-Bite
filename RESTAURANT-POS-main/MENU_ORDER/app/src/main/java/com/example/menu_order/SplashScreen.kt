@@ -14,12 +14,16 @@ class SplashScreen : AppCompatActivity() {
         setContentView(R.layout.activity_splash_screen)
 
         val logo: ImageView = findViewById(R.id.logoImage)
+//
+//        val fadeIn = AnimationUtils.loadAnimation(this, R.anim.fade_in)
+//        val zoomIn = AnimationUtils.loadAnimation(this, R.anim.zoom_in)
+//        val bounce = AnimationUtils.loadAnimation(this, R.anim.bounce)
+//        logo.startAnimation(fadeIn)
+//        logo.startAnimation(zoomIn)
+//          logo.startAnimation(bounce)
+        val combinedAnimation = AnimationUtils.loadAnimation(this, R.anim.combined_animation)
+        logo.startAnimation(combinedAnimation)
 
-        val fadeIn = AnimationUtils.loadAnimation(this, R.anim.fade_in)
-        val zoomIn = AnimationUtils.loadAnimation(this, R.anim.zoom_in)
-
-        logo.startAnimation(fadeIn)
-        logo.startAnimation(zoomIn)
 
         Handler(Looper.getMainLooper()).postDelayed({
             val iLogin = Intent(this, loginpage::class.java)

@@ -38,6 +38,7 @@ class Bill : AppCompatActivity() {
 
         btnGeneratePDF.setOnClickListener { generatePDF(this, billText) }
         btnShare.setOnClickListener { shareBill(this, billText) }
+
     }
     private fun generateBill(orderList: List<OrderItem>): String {
         val sb = StringBuilder()

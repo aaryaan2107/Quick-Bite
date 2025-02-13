@@ -1,5 +1,6 @@
 package com.example.menu_order
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
@@ -20,6 +21,8 @@ class modifier : AppCompatActivity() {
         addmodifier.setOnClickListener {
             Toast.makeText(this, "Add Modifier Clicked" , Toast.LENGTH_SHORT).show()
         }
+
+
     }
     }
 

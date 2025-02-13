@@ -1,5 +1,6 @@
 package com.example.menu_order
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
@@ -30,6 +31,11 @@ class AddItemandPrice : AppCompatActivity() {
             override fun onNothingSelected(parent: AdapterView<*>?) {
                 // Do nothing
             }
+        }
+        val backArrow = findViewById<ImageView>(R.id.back_button)
+        backArrow.setOnClickListener {
+//            onBackPressed() // Ensure you are using the correct syntax
+            finish()
         }
     }
     }

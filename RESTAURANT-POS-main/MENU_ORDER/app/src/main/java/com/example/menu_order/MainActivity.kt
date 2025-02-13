@@ -52,6 +52,11 @@ class MainActivity : AppCompatActivity() {
         listViewOrderSummary = findViewById(R.id.listViewOrderSummary)
         btnEditOrder = findViewById(R.id.btnEditOrder)
 
+        val backArrow = findViewById<ImageView>(R.id.back_button)
+        backArrow.setOnClickListener {
+//            onBackPressed() // Ensure you are using the correct syntax
+            finish()
+        }
         // Set up Cuisine Spinner
         val cuisineAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, cuisineList)
         spinnerCuisine.adapter = cuisineAdapter
