@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:orientation="vertical"
+    android:background="#FEFBF5">
+
+    <!-- GST Enable/Disable Switch -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enable GST"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:paddingBottom="8dp"/>
+
+    <Switch
+        android:id="@+id/switchGst"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="GST Applied"
+        android:checked="false"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        android:padding="10dp"/>
+
+    <!-- GST Percentage Input -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="GST Percentage (%)"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:paddingTop="16dp"/>
+
+    <EditText
+        android:id="@+id/etGstPercentage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter GST %"
+        android:inputType="numberDecimal"
+        android:textSize="16sp"
+        android:padding="10dp"
+        android:background="@drawable/edit_text_bg"
+        android:textColor="@color/black"
+        android:textColorHint="@color/gray"/>
+
+    <!-- GST Description -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="GST Description (Optional)"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:paddingTop="16dp"/>
+
+    <EditText
+        android:id="@+id/etGstDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Description"
+        android:textSize="16sp"
+        android:padding="10dp"
+        android:background="@drawable/edit_text_bg"
+        android:textColor="@color/black"
+        android:textColorHint="@color/gray"/>
+
+    <!-- Save Button -->
+    <Button
+        android:id="@+id/btnSaveGst"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save GST"
+        android:backgroundTint="@color/secondary_color"
+        android:textColor="@color/white"
+        android:padding="10dp"
+        android:layout_marginTop="20dp"/>
+
+</LinearLayout>

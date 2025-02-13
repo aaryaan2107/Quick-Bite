@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/dialog_background"
+    android:orientation="vertical"
+    android:padding="48dp">
+
+    <TextView
+        android:id="@+id/tvDialogTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingBottom="10dp"
+        android:text="Add Kot Note"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="16dp">
+
+            <CheckBox
+                android:id="@+id/cbSpicy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Spicy" />
+
+            <CheckBox
+                android:id="@+id/cbLessSalt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Less Spicy" />
+
+            <CheckBox
+                android:id="@+id/cbExtraCheese"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="100% Pure Jain" />
+
+            <CheckBox
+                android:id="@+id/cbNoOnion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No Sugar"/>
+        </LinearLayout>
+
+    <EditText
+        android:id="@+id/etKotNote"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:background="@android:drawable/editbox_background"
+        android:hint="Add Note"
+        android:padding="10dp"
+        android:textSize="24sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="73dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="25sp"
+            android:background="@drawable/button_cancel"
+            android:text="Cancel"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/btnOk"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_ok"
+            android:text="OK"
+            android:textSize="18sp" />
+    </LinearLayout>
+</LinearLayout>
+</ScrollView>

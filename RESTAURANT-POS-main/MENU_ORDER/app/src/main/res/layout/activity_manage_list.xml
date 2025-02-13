@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#FEFBF5">
+
+    <!-- Header with Back Arrow and Title -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#ffffff"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@android:drawable/ic_media_previous"
+            android:tint="@android:color/black"
+            android:contentDescription="Back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="List Management"
+
+            android:textSize="27dp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black" />
+    </LinearLayout>
+
+    <!-- Buttons Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="25dp">
+        <Button
+            android:id="@+id/btn_rebilling_reason"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:textSize="17dp"
+            android:textStyle="bold|normal|italic"
+            android:text="Re-billing Reason" />
+
+
+        <Button
+            android:id="@+id/btn_cancel_order_reason"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:text="Cancel Order Reason"
+            android:textSize="17dp"
+            android:textStyle="bold|normal|italic"
+            android:layout_marginTop="8dp" />
+
+        <Button
+            android:id="@+id/btn_cancel_item_reason"
+            android:layout_width="match_parent"
+            android:background="#ffffff"
+            android:layout_height="wrap_content"
+            android:text="Cancel Item Reason"
+            android:textSize="17dp"
+            android:textStyle="bold|normal|italic"
+            android:layout_marginTop="8dp" />
+
+        <Button
+            android:id="@+id/btn_options"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Options"
+            android:background="#ffffff"
+            android:textSize="17dp"
+            android:textStyle="bold|normal|italic"
+            android:layout_marginTop="8dp" />
+
+        <Button
+            android:id="@+id/btn_nc_payment_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="NC Payment Type"
+            android:textSize="17dp"
+            android:background="#ffffff"
+            android:textStyle="bold|normal|italic"
+            android:layout_marginTop="8dp" />
+
+        <Button
+            android:id="@+id/btn_payout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Payout"
+            android:textSize="17dp"
+            android:background="#ffffff"
+            android:textStyle="bold|normal|italic"
+            android:layout_marginTop="8dp" />
+
+        <Button
+            android:id="@+id/btn_unit_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Unit Type"
+            android:textSize="17dp"
+            android:background="#ffffff"
+            android:textStyle="bold|normal|italic"
+            android:layout_marginTop="8dp" />
+    </LinearLayout>
+</LinearLayout>
