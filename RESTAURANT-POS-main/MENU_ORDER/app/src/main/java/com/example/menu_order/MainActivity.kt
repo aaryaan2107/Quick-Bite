@@ -15,155 +15,211 @@ class MainActivity : AppCompatActivity() {
     private lateinit var listViewDishes: ListView
     private lateinit var etQuantity: EditText
     private lateinit var btnAddToOrder: Button
-    private lateinit var btnAddNotes: Button
-   // private lateinit var btnUpdateOrder: Button
+    private lateinit var tvOrderSummary: TextView
     private lateinit var btnConfirmOrder: Button
     private lateinit var btnOrderedFood: Button
-    private lateinit var listViewOrderSummary: ListView
-    private lateinit var btnEditOrder: ImageView
+    private lateinit var btnnotes : Button
 
-    private val cuisineList = arrayOf("Indian", "Chinese", "Italian", "Mexican")
-    private val foodItemsMap = mapOf(
-        "Indian" to arrayOf("Paneer Butter Masala", "Dal Tadka", "Biryani"),
-        "Chinese" to arrayOf("Noodles", "Manchurian", "Fried Rice"),
-        "Italian" to arrayOf("Pizza", "Pasta", "Lasagna"),
-        "Mexican" to arrayOf("Tacos", "Burritos", "Nachos")
+    private val cuisineMap = hashMapOf(
+        "South Indian" to mapOf(
+            "Dosa" to 80,
+            "Idli Sambar" to 60,
+            "Uttapam" to 90,
+            "Vada" to 50,
+            "Rasam Rice" to 70,
+            "Pongal" to 100,
+            "Appam" to 120,
+            "Pesarattu" to 110
+        ),
+        "Punjabi" to mapOf(
+            "Paneer Butter Masala" to 180,
+            "Chole Bhature" to 130,
+            "Rajma Chawal" to 120,
+            "Sarson da Saag" to 150,
+            "Dal Makhani" to 130,
+            "Butter Chicken" to 200,
+            "Amritsari Kulcha" to 160
+        ),
+        "Gujarati" to mapOf(
+            "Dhokla" to 60,
+            "Thepla" to 70,
+            "Khandvi" to 80,
+            "Undhiyu" to 150,
+            "Sev Tameta" to 100,
+            "Fafda" to 40,
+            "Handvo" to 120,
+            "Gujarati Kadhi" to 80
+        ),
+        "Beverages" to mapOf(
+            "Masala Chai" to 40,
+            "Lassi" to 50,
+            "Jaljeera" to 30,
+            "Sugarcane Juice" to 60,
+            "Aam Panna" to 70,
+            "Badam Milk" to 80,
+            "Filter Coffee" to 60
+        ),
+        "Rotis" to mapOf(
+            "Butter Naan" to 40,
+            "Tandoori Roti" to 30,
+            "Missi Roti" to 50,
+            "Rumali Roti" to 60,
+            "Makki di Roti" to 50,
+            "Lachha Paratha" to 60
+        ),
+        "Desserts" to mapOf(
+            "Gulab Jamun" to 60,
+            "Rasgulla" to 50,
+            "Jalebi" to 70,
+            "Rabri" to 90,
+            "Kaju Katli" to 150,
+            "Gajar Ka Halwa" to 120,
+            "Basundi" to 80,
+            "Puran Poli" to 100
+        )
     )
 
-    private val orderList = mutableListOf<String>()
-    private lateinit var dishAdapter: ArrayAdapter<String>
-    private lateinit var orderAdapter: ArrayAdapter<String>
-
+    private var selectedCuisine: String = ""
     private var selectedDish: String? = null
+    private val orderList = mutableListOf<String>()
+    private var totalAmount = 0 // Store total price
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Initialize UI Components
         spinnerCuisine = findViewById(R.id.spinnerCuisine)
         listViewDishes = findViewById(R.id.listViewDishes)
         etQuantity = findViewById(R.id.etQuantity)
         btnAddToOrder = findViewById(R.id.btnAddToOrder)
-        btnAddNotes = findViewById(R.id.addnotes)
-        //btnUpdateOrder = findViewById(R.id.btnUpdateOrder)
         btnConfirmOrder = findViewById(R.id.btnConfirmOrder)
-        btnOrderedFood = findViewById(R.id.btnOrderedFood)
-        listViewOrderSummary = findViewById(R.id.listViewOrderSummary)
-        btnEditOrder = findViewById(R.id.btnEditOrder)
+        tvOrderSummary = findViewById(R.id.tvOrderSummary)
+        btnnotes = findViewById(R.id.addnotes)
 
-        val backArrow = findViewById<ImageView>(R.id.back_button)
-        backArrow.setOnClickListener {
-//            onBackPressed() // Ensure you are using the correct syntax
-            finish()
+
+        btnnotes.setOnClickListener {
+            showKotNoteDialog()
         }
-        // Set up Cuisine Spinner
-        val cuisineAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, cuisineList)
+
+        // Setup Cuisine Spinner
+        val cuisineList = cuisineMap.keys.toList()
+        val cuisineAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, cuisineList)
+        cuisineAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerCuisine.adapter = cuisineAdapter
 
-        // Set up Dishes ListView
-        dishAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, mutableListOf())
-        listViewDishes.adapter = dishAdapter
+        // Load initial dish list
+        loadDishes(cuisineList.first())
 
-        // Set up Order ListView
-        orderAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, orderList)
-        listViewOrderSummary.adapter = orderAdapter
-
-        // Initially disable dish selection and quantity input
-        listViewDishes.isEnabled = false
-        etQuantity.isEnabled = false
-
-        // Change dishes based on selected cuisine
+        // Spinner selection change listener
         spinnerCuisine.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                val selectedCuisine = cuisineList[position]
-                dishAdapter.clear()
-
-                // Enable listViewDishes now that cuisine is selected
-                listViewDishes.isEnabled = true
-                etQuantity.isEnabled = false // Reset quantity input
-
-                val foodList = foodItemsMap[selectedCuisine]?.toMutableList() ?: mutableListOf()
-                dishAdapter.addAll(foodList)
-                dishAdapter.notifyDataSetChanged()
+                selectedCuisine = cuisineList[position]
+                loadDishes(selectedCuisine)
             }
 
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-                listViewDishes.isEnabled = false
-                etQuantity.isEnabled = false
-            }
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
         }
 
-        // Select dish from the list
+        // ListView Item Click Listener
         listViewDishes.setOnItemClickListener { _, _, position, _ ->
-            selectedDish = dishAdapter.getItem(position)
-            etQuantity.isEnabled = true // Enable quantity input after dish selection
-            etQuantity.requestFocus()
+            selectedDish = (listViewDishes.adapter as ArrayAdapter<String>).getItem(position)
+            Toast.makeText(this, "Selected: $selectedDish", Toast.LENGTH_SHORT).show()
         }
 
-        // Handle Add to Order Button Click
+        // Add to Order Button
         btnAddToOrder.setOnClickListener {
-            val cuisine = spinnerCuisine.selectedItem?.toString()
-            val quantity = etQuantity.text.toString().trim()
-
-            if (cuisine.isNullOrEmpty()) {
-                Toast.makeText(this, "Select a cuisine first!", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
+            val quantityStr = etQuantity.text.toString().trim()
 
             if (selectedDish.isNullOrEmpty()) {
-                Toast.makeText(this, "Select a dish first!", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-
-            if (quantity.isEmpty()) {
-                Toast.makeText(this, "Enter quantity!", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-
-            val orderItem = "$selectedDish - $quantity pcs"
-            orderList.add(orderItem)
-            orderAdapter.notifyDataSetChanged()
-
-            // Reset selection
-            etQuantity.text.clear()
-            selectedDish = null
-            etQuantity.isEnabled = false
-        }
-
-        // Handle Edit Order Button Click
-        btnEditOrder.setOnClickListener {
-            if (orderList.isNotEmpty()) {
-                orderList.removeAt(orderList.size - 1) // Removes last item
-                orderAdapter.notifyDataSetChanged()
-                Toast.makeText(this, "Last item removed", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Please select a dish", Toast.LENGTH_SHORT).show()
+            } else if (quantityStr.isEmpty() || quantityStr.toIntOrNull() == null || quantityStr.toInt() <= 0) {
+                Toast.makeText(this, "Enter valid quantity", Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(this, "No items to remove", Toast.LENGTH_SHORT).show()
+                val quantity = quantityStr.toInt()
+                val dishName = selectedDish!!.split(" - ₹")[0] // Extract dish name only
+                val price = cuisineMap[selectedCuisine]?.get(dishName) ?: 0
+                val totalPrice = price * quantity
+
+                // Add to order list
+                val orderItem = "$dishName x $quantity = ₹$totalPrice"
+                orderList.add(orderItem)
+
+                // Update total amount
+                totalAmount += totalPrice
+
+                // Update Order Summary
+                updateOrderSummary()
+                etQuantity.text.clear()
             }
         }
 
-        // Handle Update Order Button Click
-//        btnUpdateOrder.setOnClickListener {
-//            Toast.makeText(this, "Order Updated", Toast.LENGTH_SHORT).show()
-//        }
-
-        // Handle Confirm Order Button Click
+        // Confirm Order Button
         btnConfirmOrder.setOnClickListener {
-            if (orderList.isNotEmpty()) {
-                Toast.makeText(this, "Order Confirmed!", Toast.LENGTH_LONG).show()
+            if (orderList.isEmpty()) {
+                Toast.makeText(this, "No items in the order", Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(this, "No items in order!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Order Confirmed!", Toast.LENGTH_SHORT).show()
+                //orderList.clear()
+                // totalAmount = 0 // Reset total amount
+                updateOrderSummary()
+
+            }
+        }
+        btnorderedfood.setOnClickListener {
+            if (orderList.isEmpty()) {
+                Toast.makeText(this, "No items in the order", Toast.LENGTH_SHORT).show()
+            } else {
+                val intent = Intent(this, OrderedFood::class.java)
+                intent.putStringArrayListExtra("orderList", ArrayList(orderList))
+                intent.putExtra("totalAmount", totalAmount)
+                startActivity(intent)
             }
         }
 
-        // Handle Ordered Food Button Click
-        btnOrderedFood.setOnClickListener {
-            Toast.makeText(this, "Showing Ordered Food", Toast.LENGTH_SHORT).show()
+    }
+
+    private fun showKotNoteDialog() {
+        val dialog = Dialog(this)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setContentView(R.layout.activity_dialog_kot_note)
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+        dialog.window?.setLayout((resources.displayMetrics.widthPixels * 0.85).toInt(), (resources.displayMetrics.heightPixels * 0.4).toInt())
+
+        val etKotNote: EditText = dialog.findViewById(R.id.etKotNote)
+        val btnCancel: Button = dialog.findViewById(R.id.btnCancel)
+        val btnOk: Button = dialog.findViewById(R.id.btnOk)
+
+        btnCancel.setOnClickListener {
+            dialog.dismiss()
         }
 
-        // Handle Add Notes Button Click
-        btnAddNotes.setOnClickListener {
-            Toast.makeText(this, "Add Notes Feature Coming Soon!", Toast.LENGTH_SHORT).show()
+        btnOk.setOnClickListener {
+            val note = etKotNote.text.toString().trim()
+            if (note.isNotEmpty()) {
+                Toast.makeText(this, "Note: $note", Toast.LENGTH_SHORT).show()
+            }
+            dialog.dismiss()
+        }
+
+        dialog.show()
+    }
+    // Load Dishes based on selected cuisine
+    private fun loadDishes(cuisineCategory: String) {
+        val dishesWithPrices = cuisineMap[cuisineCategory]
+
+        if (dishesWithPrices != null) {
+            val dishListWithPrices = dishesWithPrices.map { (dish, price) -> "$dish - ₹$price" }
+            val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, dishListWithPrices)
+            listViewDishes.adapter = adapter
+        }
+    }
+
+    // Update Order Summary
+    private fun updateOrderSummary() {
+        tvOrderSummary.text = if (orderList.isNotEmpty()) {
+            orderList.joinToString("\n") + "\n\nTotal: ₹$totalAmount"
+        } else {
+            "No items added"
         }
     }
 }

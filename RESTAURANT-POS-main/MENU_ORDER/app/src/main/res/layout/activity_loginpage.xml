@@ -18,7 +18,7 @@
         android:layout_marginEnd="24dp"
         android:drawableLeft="@drawable/ic_person_black"
         android:hint="  Email"
-        android:text="admin"
+
         android:inputType="textEmailAddress"
         android:selectAllOnFocus="true"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,7 +36,6 @@
         android:drawableLeft="@drawable/ic_lock_black_"
         android:hint="  Password"
         android:imeActionLabel="Sign In"
-        android:text="admin"
         android:imeOptions="actionDone"
         android:inputType="textPassword"
         android:selectAllOnFocus="true"

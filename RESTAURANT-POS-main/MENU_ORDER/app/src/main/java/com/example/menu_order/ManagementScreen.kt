@@ -16,12 +16,11 @@ class ManagementScreen : AppCompatActivity() {
         val payment : ImageView = findViewById(R.id.payments)
         val category : ImageView = findViewById(R.id.Category)
         val item : ImageView = findViewById(R.id.items)
-        val manage: ImageView = findViewById(R.id.managelist)
+        //val manage: ImageView = findViewById(R.id.managelist)
         val modify:ImageView = findViewById(R.id.Modifier)
         val variations : ImageView = findViewById(R.id.Variation)
         val backArrow = findViewById<ImageView>(R.id.back_button)
         backArrow.setOnClickListener {
-//            onBackPressed() // Ensure you are using the correct syntax
             finish()
         }
         payment.setOnClickListener {
@@ -36,10 +35,10 @@ class ManagementScreen : AppCompatActivity() {
             val intent = Intent(this,AddItemandPrice::class.java)
             startActivity(intent)
         }
-        manage.setOnClickListener {
-            val intent = Intent(this,manage_list::class.java)
-            startActivity(intent)
-        }
+//        manage.setOnClickListener {
+//            val intent = Intent(this,manage_list::class.java)
+//            startActivity(intent)
+//        }
         modify.setOnClickListener {
             val intent=Intent(this,modifier::class.java)
             startActivity(intent)

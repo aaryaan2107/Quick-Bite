@@ -1,30 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#FEFBF5">
-
-    <ImageView
-        android:id="@+id/back_button"
-        android:src="@drawable/ic_back_arrow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FEFBF5">
-
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/oldLace">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="16dp"
-        android:background="#FEFBF5">
+        android:background="@color/oldLace">
 
         <!-- Cuisine Selection -->
         <TextView
@@ -42,7 +30,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:drawable/editbox_background"
-            android:padding="8dp" />
+            android:textColor="@color/black"
+            android:padding="8dp"/>
 
         <!-- Food Items -->
         <TextView
@@ -56,15 +45,16 @@
             android:textSize="18sp"
             android:textStyle="bold" />
 
+        <!-- Quantity Selection -->
         <ListView
             android:id="@+id/listViewDishes"
             android:layout_width="match_parent"
             android:layout_height="147dp"
+            android:textColor="@color/black"
             android:background="@android:color/white"
             android:divider="@android:color/darker_gray"
             android:dividerHeight="1dp" />
 
-        <!-- Quantity Selection -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -80,116 +70,94 @@
             android:id="@+id/etQuantity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:drawable/editbox_background"
             android:hint="Enter quantity"
+            android:textColor="@color/black"
             android:inputType="number"
-            android:padding="10dp"
-            android:textColor="@color/black" />
+            android:background="@android:drawable/editbox_background"
+            android:padding="10dp"/>
 
-        <!-- Add to Order & Notes -->
+        <!-- Add to Order Button -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-
             <Button
                 android:id="@+id/btnAddToOrder"
-                android:layout_width="0dp"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:backgroundTint="@color/colorPrimary"
                 android:text="Add to Order"
+                android:backgroundTint="@color/colorPrimary"
                 android:textColor="@android:color/white"
-                android:textSize="16sp" />
-
+                android:textSize="16sp"
+                android:layout_marginTop="10dp"/>
             <Button
                 android:id="@+id/addnotes"
-                android:layout_width="0dp"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:backgroundTint="@color/colorPrimary"
                 android:text="Notes"
+                android:backgroundTint="@color/colorPrimary"
                 android:textColor="@android:color/white"
-                android:textSize="16sp" />
-        </LinearLayout>
+                android:textSize="16sp"
+                android:layout_marginTop="10dp"/>
 
-        <!-- Order Summary Title & Edit Icon -->
+
+        </LinearLayout>
+        <!-- Order Summary -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_summary"
+            android:paddingTop="16dp"
+            android:paddingBottom="8dp"
+            android:text="Order Summary"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@android:color/white">
+
+            <TextView
+                android:id="@+id/tvOrderSummary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:text="No items added"
+                android:textSize="16sp" />
+        </ScrollView>
+
+        <!-- Button Layout -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="center_vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/ic_summary"
-                android:paddingTop="16dp"
-                android:paddingBottom="8dp"
-                android:text="Order Summary"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <ImageView
-                android:id="@+id/btnEditOrder"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="75dp"
-                android:src="@drawable/ic_delete_black_24dp"
-                android:contentDescription="Edit Order" />
-        </LinearLayout>
-
-        <!-- Order ListView -->
-        <ListView
-            android:id="@+id/listViewOrderSummary"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:background="@android:color/white"
-            android:divider="@android:color/darker_gray"
-            android:dividerHeight="1dp" />
-
-        <!-- Update Order Button -->
-<!--        <Button-->
-<!--            android:id="@+id/btnUpdateOrder"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="10dp"-->
-<!--            android:backgroundTint="@color/colorAccent"-->
-<!--            android:text="Update Order"-->
-<!--            android:textColor="@android:color/white"-->
-<!--            android:textSize="16sp" />-->
-
-        <!-- Confirm Order & Ordered Food Buttons -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:gravity="center"
-            android:orientation="horizontal">
+            android:gravity="center">
 
             <Button
                 android:id="@+id/btnConfirmOrder"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
                 android:layout_weight="1"
-                android:backgroundTint="@color/primary_green"
+                android:layout_height="wrap_content"
                 android:text="Order"
+                android:backgroundTint="@color/primary_green"
                 android:textColor="@android:color/white"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:layout_marginEnd="8dp"/>
 
             <Button
-                android:id="@+id/btnOrderedFood"
+                android:id="@+id/btnorderedfood"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:backgroundTint="@color/colorAccent"
+                android:layout_height="wrap_content"
                 android:text="Ordered Food"
+                android:backgroundTint="@color/colorAccent"
                 android:textColor="@android:color/white"
-                android:textSize="16sp" />
+                android:textSize="16sp"/>
         </LinearLayout>
 
     </LinearLayout>
 </ScrollView>
-</LinearLayout>
