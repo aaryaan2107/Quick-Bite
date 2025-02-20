@@ -10,11 +10,7 @@ import android.database.sqlite.SQLiteDatabase
 import kotlinx.android.synthetic.main.activity_loginpage.*
 
 class loginpage : AppCompatActivity() {
-
-
-   lateinit var DB : SQLiteDatabase
-
-
+    lateinit var DB : SQLiteDatabase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

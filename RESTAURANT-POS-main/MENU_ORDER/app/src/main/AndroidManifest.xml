@@ -3,9 +3,12 @@
     package="com.example.menu_order">
 
     <application
+        android:label="Quick-Bite"
+        android:icon="@mipmap/ic_launcher_1"
         android:allowBackup="true"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        >
         <activity android:name=".SplashScreen"
             android:theme="@style/SplashTheme">
             <intent-filter>
