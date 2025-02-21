@@ -11,11 +11,11 @@ class modifier : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_modifier)
 
-
-        val backmodifier:ImageView = findViewById(R.id.back_modifier)
-        backmodifier.setOnClickListener {
-            finish() // Go back to the previous activity
-        }
+//
+//        val backmodifier:ImageView = findViewById(R.id.back_modifier)
+//        backmodifier.setOnClickListener {
+//            finish() // Go back to the previous activity
+//        }
         // Add Modifier button click event
         val addmodifier: ImageView = findViewById(R.id.add_modifier)
         addmodifier.setOnClickListener {

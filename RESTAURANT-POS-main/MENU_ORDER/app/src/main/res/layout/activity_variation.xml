@@ -14,14 +14,14 @@
         android:background="#FFFFFF">
 
         <!-- Back Icon -->
-        <ImageView
-            android:id="@+id/back_button"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginStart="16dp"
-            android:layout_centerVertical="true"
-            android:src="@drawable/ic_back_arrow"
-            android:contentDescription="back_button" />
+<!--        <ImageView-->
+<!--            android:id="@+id/back_button"-->
+<!--            android:layout_width="24dp"-->
+<!--            android:layout_height="24dp"-->
+<!--            android:layout_marginStart="16dp"-->
+<!--            android:layout_centerVertical="true"-->
+<!--            android:src="@drawable/ic_back_arrow"-->
+<!--            android:contentDescription="back_button" />-->
 
         <!-- Title Text -->
         <TextView

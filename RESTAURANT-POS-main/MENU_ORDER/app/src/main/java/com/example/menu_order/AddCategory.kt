@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.content.Intent
 import android.database.sqlite.SQLiteDatabase
 import android.widget.*
+import kotlinx.android.synthetic.main.activity_add_category.*
 
 class AddCategory : AppCompatActivity() {
     lateinit var categoryname : EditText
@@ -16,7 +17,7 @@ class AddCategory : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_category)
 
-        DB = openOrCreateDatabase("quickbite", Context.MODE_PRIVATE,null)
+        DB = openOrCreateDatabase("QUICKBITE", Context.MODE_PRIVATE,null)
 
 //        var qry = """
 //        CREATE TABLE tbl_categories (
@@ -26,11 +27,11 @@ class AddCategory : AppCompatActivity() {
 //    """.trimIndent()
 //        DB.execSQL(qry)
 
-        val backArrow = findViewById<ImageView>(R.id.back_button)
-        backArrow.setOnClickListener {
-            val intent = Intent(this,ManagementScreen::class.java)
-            startActivity(intent)
-        }
+//        val backArrow = findViewById<ImageView>(R.id.back_button)
+//        backArrow.setOnClickListener {
+//            val intent = Intent(this,ManagementScreen::class.java)
+//            startActivity(intent)
+//        }
 
         val addcategoriers = findViewById<Button>(R.id.btnSaveCategory)
 
@@ -40,7 +41,9 @@ class AddCategory : AppCompatActivity() {
             insqry = "INSERT INTO tbl_categories (CategoryName) VALUES ('${categoryname.text}')"
             DB.execSQL(insqry)
             println(insqry)
+            etCategoryName.text = null
         }
+
 
     }
 }

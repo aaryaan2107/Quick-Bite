@@ -5,31 +5,32 @@
     android:padding="16dp"
     android:orientation="vertical"
     android:background="#FEFBF5">
-    <ImageView
-        android:src="@drawable/ic_back_arrow"
-        android:id="@+id/back_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+<!--    <ImageView-->
+<!--        android:src="@drawable/ic_back_arrow"-->
+<!--        android:id="@+id/back_button"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"/>-->
 
     <!-- GST Enable/Disable Switch -->
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Enable GST"
-        android:textSize="16sp"
+        android:paddingTop="16dp"
+        android:text="GST Name"
         android:textColor="@color/black"
-        android:paddingBottom="8dp"/>
+        android:textSize="16sp" />
 
-    <Switch
-        android:id="@+id/switchGst"
+    <EditText
+        android:id="@+id/etGstDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="GST Applied"
-        android:checked="false"
-        android:textSize="14sp"
+        android:hint="Enter Description"
+        android:textSize="16sp"
+        android:padding="10dp"
+        android:background="@drawable/edit_text_bg"
         android:textColor="@color/black"
-        android:padding="10dp"/>
-
+        android:textColorHint="@color/gray"/>
     <!-- GST Percentage Input -->
     <TextView
         android:layout_width="match_parent"
@@ -52,24 +53,8 @@
         android:textColorHint="@color/gray"/>
 
     <!-- GST Description -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="GST Description (Optional)"
-        android:textSize="16sp"
-        android:textColor="@color/black"
-        android:paddingTop="16dp"/>
 
-    <EditText
-        android:id="@+id/etGstDescription"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter Description"
-        android:textSize="16sp"
-        android:padding="10dp"
-        android:background="@drawable/edit_text_bg"
-        android:textColor="@color/black"
-        android:textColorHint="@color/gray"/>
+
 
     <!-- Save Button -->
     <Button

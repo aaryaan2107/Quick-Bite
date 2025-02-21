@@ -18,11 +18,11 @@ class variation : AppCompatActivity() {
         addvariation.setOnClickListener {
             Toast.makeText(this, "Add Variation Clicked" , Toast.LENGTH_SHORT).show()
         }
-        val backArrow = findViewById<ImageView>(R.id.back_button)
-        backArrow.setOnClickListener {
-//            onBackPressed() // Ensure you are using the correct syntax
-            val intent = Intent(this,ManagementScreen::class.java)
-            startActivity(intent)
-        }
+//        val backArrow = findViewById<ImageView>(R.id.back_button)
+//        backArrow.setOnClickListener {
+////            onBackPressed() // Ensure you are using the correct syntax
+//            val intent = Intent(this,ManagementScreen::class.java)
+//            startActivity(intent)
+//        }
     }
 }

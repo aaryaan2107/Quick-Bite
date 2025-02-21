@@ -7,11 +7,11 @@
     android:orientation="vertical"
     android:padding="16dp"
     android:background="#FEFBF5">
-    <ImageView
-        android:src="@drawable/ic_back_arrow"
-        android:id="@+id/back_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+<!--    <ImageView-->
+<!--        android:src="@drawable/ic_back_arrow"-->
+<!--        android:id="@+id/back_button"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"/>-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -218,15 +218,36 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:padding="8dp"
+                android:gravity="center">
 
-            <!-- Repeat similar blocks for additional management options -->
-<!--            <LinearLayout-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_weight="1"-->
-<!--                android:orientation="vertical"-->
-<!--                android:padding="8dp"-->
-<!--                android:gravity="center">-->
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_kot_print" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="KOT"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:gravity="center_horizontal" />
+            </LinearLayout>
+
+             Repeat similar blocks for additional management options
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:padding="8dp"
+                android:gravity="center">
 
 <!--                <ImageView-->
 <!--                    android:id="@+id/managelist"-->
@@ -241,7 +262,9 @@
 <!--                    android:textSize="14sp"-->
 <!--                    android:textStyle="bold"-->
 <!--                    android:gravity="center_horizontal" />-->
-<!--            </LinearLayout>-->
+            </LinearLayout>
+
+
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -249,30 +272,7 @@
                 android:layout_weight="1"
                 android:orientation="vertical"
                 android:padding="8dp"
-                android:layout_marginRight="600px"
                 android:gravity="center">
-
-                <ImageView
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:src="@drawable/ic_kot_print" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="KOT"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    android:gravity="center_horizontal" />
-            </LinearLayout>
-
-<!--            <LinearLayout-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_weight="1"-->
-<!--                android:orientation="vertical"-->
-<!--                android:padding="8dp"-->
-<!--                android:gravity="center">-->
 
 <!--                <ImageView-->
 <!--                    android:id="@+id/Category"-->
@@ -288,7 +288,7 @@
 <!--                    android:textSize="14sp"-->
 <!--                    android:textStyle="bold"-->
 <!--                    android:gravity="center_horizontal" />-->
-<!--            </LinearLayout>-->
+            </LinearLayout>
         </LinearLayout>
     </TableRow>
 

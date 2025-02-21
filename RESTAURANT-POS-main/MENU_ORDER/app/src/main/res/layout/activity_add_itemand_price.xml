@@ -8,11 +8,11 @@
     android:background="#FEFBF5"
     tools:context=".AddItemandPrice">
 
-    <ImageView
-        android:src="@drawable/ic_back_arrow"
-        android:id="@+id/back_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+<!--    <ImageView-->
+<!--        android:src="@drawable/ic_back_arrow"-->
+<!--        android:id="@+id/back_button"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"/>-->
 
     <Spinner
         android:id="@+id/spinnerCuisine"
@@ -27,6 +27,7 @@
 
 
     <EditText
+        android:id="@+id/etitemname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="25dp"
@@ -36,6 +37,7 @@
         android:padding="12dp"/>
 
     <EditText
+        android:id="@+id/etprice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="25dp"
@@ -47,19 +49,44 @@
         android:inputType="number"
         android:textSize="16sp" />
 
+<!--    <EditText-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginLeft="25dp"-->
+<!--        android:layout_marginRight="25dp"-->
+<!--        android:layout_marginBottom="16dp"-->
+<!--        android:background="@drawable/edittext_background"-->
+<!--        android:hint="Price with GST"-->
+<!--        android:padding="12dp"-->
+<!--        android:inputType="number"-->
+<!--        android:textSize="16sp" />-->
+    <Spinner
+        android:id="@+id/spinnergst"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/edittext_background"
+        android:padding="2dp"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
     <EditText
+        android:id="@+id/etpricegst"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/edittext_background"
-        android:hint="Price with GST"
+        android:hint=" Price with GST "
         android:padding="12dp"
         android:inputType="number"
         android:textSize="16sp" />
 
     <Button
+        android:id="@+id/btnadditem"
         android:text="Save"
         android:background="@drawable/edittext_background"
         android:gravity="center"

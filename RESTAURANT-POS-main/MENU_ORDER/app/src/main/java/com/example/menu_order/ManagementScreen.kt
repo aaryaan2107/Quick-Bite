@@ -19,10 +19,10 @@ class ManagementScreen : AppCompatActivity() {
         //val manage: ImageView = findViewById(R.id.managelist)
         val modify:ImageView = findViewById(R.id.Modifier)
         val variations : ImageView = findViewById(R.id.Variation)
-        val backArrow = findViewById<ImageView>(R.id.back_button)
-        backArrow.setOnClickListener {
-            finish()
-        }
+//        val backArrow = findViewById<ImageView>(R.id.back_button)
+//        backArrow.setOnClickListener {
+//            finish()
+//        }
         payment.setOnClickListener {
             val intent = Intent(this,AddGST::class.java)
             startActivity(intent)

@@ -16,4 +16,12 @@
         <item name="android:windowFullscreen">true</item>
     </style>
 
+    <style name="Modifier" parent="Theme.AppCompat.Light.NoActionBar">
+
+    </style>
+<!--    <style name="modifier" parent="Theme.AppCompat.Light.NoActionBar">-->
+<!--        <item name="android:windowNoTitle">true</item>-->
+<!--        <item name="android:windowFullscreen">true</item>-->
+<!--    </style>-->
+
 </resources>

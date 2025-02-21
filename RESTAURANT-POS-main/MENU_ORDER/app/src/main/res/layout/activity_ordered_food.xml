@@ -14,13 +14,13 @@
         android:background="#FEFBF5"
         >
 
-        <ImageView
-            android:layout_width="24dp"
-            android:id="@+id/imgback"
-            android:layout_height="24dp"
-            android:src="@drawable/ic_back_arrow"
-            android:tint="@android:color/black"
-            android:layout_gravity="center_vertical"/>
+<!--        <ImageView-->
+<!--            android:layout_width="24dp"-->
+<!--            android:id="@+id/imgback"-->
+<!--            android:layout_height="24dp"-->
+<!--            android:src="@drawable/ic_back_arrow"-->
+<!--            android:tint="@android:color/black"-->
+<!--            android:layout_gravity="center_vertical"/>-->
 
 <!--        <TextView-->
 <!--            android:layout_width="wrap_content"-->

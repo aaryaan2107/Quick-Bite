@@ -19,33 +19,29 @@ class loginpage : AppCompatActivity() {
         val emailEditText: EditText = findViewById(R.id.username)
         val passwordEditText: EditText = findViewById(R.id.password)
 
-        DB = openOrCreateDatabase("quickbite", Context.MODE_PRIVATE,null)
-
+        DB = openOrCreateDatabase("QUICKBITE", Context.MODE_PRIVATE,null)
+//
 //        val qry : String = "create table if not exists tbl_user (U_Id INTEGER NOT NULL,username TEXT, password TEXT,PRIMARY KEY(U_Id))"
 //        DB.execSQL(qry)
 //
-//        val insqry :String = "insert into tbl_user values (1,'admin','123456')"
+//        val insqry :String = "insert into tbl_user values (1,'admin','12345')"
 //        DB.execSQL(insqry)
 
 
         login.setOnClickListener {
             val email = emailEditText.text.toString().trim()
             val password = passwordEditText.text.toString().trim()
-
-          Toast.makeText(this,"$email,$password",Toast.LENGTH_SHORT).show()
-
-
             if(email.isNotEmpty() && password.isNotEmpty())
             {
-                Toast.makeText(this,"$email,$password",Toast.LENGTH_SHORT).show()
                 val cursor :Cursor = DB.rawQuery("select * from tbl_user where username=? AND password=?",
                     arrayOf(email,password))
 
                 if(cursor.count>0)
                 {
                     cursor.close()
-                    Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show()
+
                     val intent = Intent(this, HomeScreen::class.java)
+                    Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show()
                     startActivity(intent)
                 }
                 else

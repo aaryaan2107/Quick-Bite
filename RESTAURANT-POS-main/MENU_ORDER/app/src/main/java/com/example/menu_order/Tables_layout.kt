@@ -16,21 +16,13 @@ class Tables_layout : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tables_layout)
-
-//        val tb1 : Button = findViewById(R.id.table1)
-//
-//        tb1.setOnClickListener {
-//            val intent = Intent(this,MainActivity::class.java)
+        
+//        val backArrow = findViewById<ImageView>(R.id.back_button)
+//        backArrow.setOnClickListener {
+////            onBackPressed() // Ensure you are using the correct syntax
+//            val intent = Intent(this,HomeScreen::class.java)
 //            startActivity(intent)
-//
 //        }
-
-        val backArrow = findViewById<ImageView>(R.id.back_button)
-        backArrow.setOnClickListener {
-//            onBackPressed() // Ensure you are using the correct syntax
-            val intent = Intent(this,HomeScreen::class.java)
-            startActivity(intent)
-        }
 
         val tableIds = listOf(
             R.id.table1, R.id.table2, R.id.table3, R.id.table4, R.id.table5,
