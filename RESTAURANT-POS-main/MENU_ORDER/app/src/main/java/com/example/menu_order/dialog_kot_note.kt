@@ -10,5 +10,10 @@ class dialog_kot_note : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dialog_kot_note)
 
+
+        val btnCancel: Button = findViewById(R.id.btnCancel)
+        btnCancel.setOnClickListener {
+            finish() // Closes the activity
+        }
     }
 }

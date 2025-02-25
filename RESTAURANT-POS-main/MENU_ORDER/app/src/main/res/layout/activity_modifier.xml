@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FEFBF5"
-    android:theme="@style/Modifier"
     tools:context=".modifier">
 
     <!-- AppBar at the top -->

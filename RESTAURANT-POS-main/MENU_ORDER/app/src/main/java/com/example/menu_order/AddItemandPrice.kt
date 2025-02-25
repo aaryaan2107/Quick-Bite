@@ -22,8 +22,6 @@ class AddItemandPrice : AppCompatActivity() {
 //        val gstpriceL:EditText = findViewById(R.id.etpricegst)
 //        DB = openOrCreateDatabase("QUICKBITE", MODE_PRIVATE, null)
 //
-////        var qry = "CREATE TABLE tbl_menuitems (ItemID INTEGER PRIMARY KEY AUTOINCREMENT, Category_Id INTEGER NOT NULL, CategoryName Text NOT NULL,ItemName TEXT NOT NULL, Price INTEGER NOT NULL, PricewithGST INTEGER NOT NULL)"
-////        DB.execSQL(qry)
 //        // Fetch cuisine details (ID + Name)
 //        val cuisineList = mutableListOf<Pair<Int, String>>()
 //        val cuisineNames = mutableListOf("Select Cuisine") // For display in spinner
@@ -79,6 +77,9 @@ class AddItemandPrice : AppCompatActivity() {
         //val backArrow = findViewById<ImageView>(R.id.back_button)
 
         DB = openOrCreateDatabase("QUICKBITE", MODE_PRIVATE, null)
+
+//        var qry = "CREATE TABLE tbl_menuitems (ItemID INTEGER PRIMARY KEY AUTOINCREMENT, Category_Id INTEGER NOT NULL, CategoryName Text NOT NULL,ItemName TEXT NOT NULL, Price INTEGER NOT NULL, PricewithGST INTEGER NOT NULL)"
+//        DB.execSQL(qry)
 
         // Load Cuisine Data
         val cuisineList = mutableListOf<Pair<Int, String>>()

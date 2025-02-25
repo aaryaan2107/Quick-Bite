@@ -47,6 +47,17 @@ class ManagementScreen : AppCompatActivity() {
             val intent=Intent(this,variation::class.java)
             startActivity(intent)
         }
+
+
+        var actionBar = getSupportActionBar()
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true)
+        }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 
 }
